@@ -1,4 +1,4 @@
-# Portable Notebook Containers DIVE for DEC
+# Portable Notebook Containers for DIVE
 
 This repository contains dockerfiles to build Jupyter notebook images for the [DIVE](https://github.com/dive4dec/dive4dec.github.io) virtual learning environment. The dockerfiles are divided into modules and folders, so that different features can be stacked together to build a custom docker image for different courses.
 
@@ -17,8 +17,13 @@ This repository contains dockerfiles to build Jupyter notebook images for the [D
 *Clone the repository* by running the following shell command in a directory of your choice:
 
 ```
-git clone https://github.com/dive4dec/dive.git
+git clone https://github.com/dive4dec/dive.git && \
+cd dive && git submodule update --init docker-stacks
 ```
+
+
+- The `docker-stacks` submodule is needed if you want to build notebooks with nvidia CUDA library for GPUs.
+- There is a private submodule `dive-deploy` you need not worry about.
 
 To *build and run the jupyter notebook image supporting different programming languages* (C++, Java, SQL, LaTeX, ...), run the following command under the root folder of the cloned repository:
 
