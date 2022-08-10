@@ -1,0 +1,21 @@
+import os
+c=get_config()
+
+# nbgrader_config.py for teacher
+# place under teacher's home directory ~ or ~/.jupyter
+c.CourseDirectory.course_id = 'mycourse'
+c.CourseDirectory.root =  os.environ['HOME'] + '/work'
+c.CourseDirectory.db_url = 'sqlite:///' + os.environ['HOME'] + '/work' + '/gradebook.db'
+c.CourseDirectory.ignore = ['.ipynb_checkpoints', '*.pyc', '__pycache__', 'feedback', 'media', 'private', 'tmp', '*.md']
+c.ExecutePreprocessor.timeout = 10
+c.ClearSolutions.code_stub = dict(
+        python="# BEGIN your python code\nraise NotImplementedError()  # REPLACE\n# END your code",
+        matlab="% BEGIN your matlab code\nerror('No Answer Given!')  % REPLACE\n% END your code",
+        octave="% BEGIN your octave code\nerror('No Answer Given!')  % REPLACE\n% END your code",
+        sas="/* BEGIN your sas code */\n %notImplemented;\n% END your code",
+        java="// BEGIN your code",
+        javascript="// BEGIN your js code\nthrow new Error();\n// End your code",
+        R="# BEGIN your R code\n# END your code\n",
+        ruby="# BEGIN your ruby code\n# END your code",
+        maxima="/* BEGIN your maxima code */\n/* end of maxima code */"
+    )

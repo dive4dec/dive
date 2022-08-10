@@ -1,0 +1,6 @@
+[submodule "docker-stacks"]
+	path = docker-stacks
+	url = https://github.com/dive4dec/docker-stacks.git
+[submodule "dive-deploy"]
+	path = dive-deploy
+	url = https://github.com/ccha23/dive-deploy.git
