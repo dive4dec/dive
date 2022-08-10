@@ -1,6 +1,7 @@
 SHELL:= /bin/bash
 # Registry for docker images
 REGISTRY=localhost:32000
+# REGISTRY=chungc
 # version for tagging image for deployment
 VERSION=0.0.2
 
@@ -18,7 +19,7 @@ main:
 	docker run --rm -it  -p 8888:8888/tcp main
 
 push-%:
-	docker tag "$*" "${REGISTRY}$*:${VERSION}"
+	docker tag "$*" "${REGISTRY}/$*:${VERSION}"
 	docker push "${REGISTRY}/$*:${VERSION}"
 
 # Scipy notebook with GPU support (Nvidia CUDA)
@@ -106,6 +107,5 @@ divedeep: scipy-nv
 
 
 modules := main scipy-nv programming divedeep jupyter-interface math datamining grading deploy classic push
-pushmodules := $(addprefix push-, $(modules))
 
-.PHONY: $(modules) $(pushmodules)
+.PHONY: $(modules)
