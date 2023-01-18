@@ -3,12 +3,12 @@ SHELL:= /bin/bash
 REGISTRY=localhost:32000
 # REGISTRY=chungc
 # version for tagging image for deployment
-VERSION=0.0.2
+VERSION=0.0.3
 
 # main image to deploy
 main:
 	base=jupyter/scipy-notebook; i=0; \
-	for module in jupyter-interface programming math dev; \
+	for module in jupyter-interface programming math grading dev; \
 	do \
 	stage="main$$((++i))_$$module"; \
 	docker build --build-arg BASE_CONTAINER="$$base" \
